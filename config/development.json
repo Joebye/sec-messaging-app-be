@@ -1,0 +1,22 @@
+{
+    "General": {
+        "server": {
+            "port": 3501
+        }
+    },
+    "Pino": {
+        "PINO_LOG_LEVEL": "trace",
+        "logs_path": "/sec-messaging-app-be/sec-messaging-app-be-logs"
+    },
+    "DB": {
+        "mongodb": {
+            "env_uri": "mongodb+srv://root:jjsStJ2kWzldLyZE@cluster1.x64iy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1",
+            "env_full_uri": "mongodb+srv://root:jjsStJ2kWzldLyZE@cluster1.x64iy.mongodb.net/secure-messaging?retryWrites=true&w=majority&appName=Cluster1",
+            "dbName": "secure-messaging",
+            "collections": {
+                "users": "users",
+                "messages": "messages"
+            }
+        }
+    }
+}
