@@ -2,11 +2,14 @@ import express from 'express';
 import asynchandler from 'express-async-handler';
 import { logger } from '../logger.mjs';
 import AuthService from '../services/AuthService.mjs';
+import { log } from 'node:console';
 export const auth = express.Router();
 const authService = new AuthService();
 
 auth.post('/login', asynchandler(async (req, res) => {
     const obj = req.body;
+    console.log(obj);
+    
     logger.info(`${obj ? '[LOGIN: user obj has been received]': '[LOGIN: empty user obj data]'}`)
     const loginRes = await authService.loginUser(obj);
     res.send(loginRes);

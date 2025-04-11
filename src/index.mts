@@ -9,6 +9,7 @@ import https from 'https';
 import mongoose from 'mongoose';
 import { auth } from './routes/auth.mjs';
 import errorHandler from './middleware/errorHandler.mjs';
+import { messaging } from './routes/messaging.mjs';
 
 
 const app = express();
@@ -17,9 +18,10 @@ app.use(cors());
 app.use(helmet());
 
 app.use('/auth', auth);
-app.use(errorHandler);
-const privateKey = fs.readFileSync('./certs/key.pem', 'utf8');
-const certificate = fs.readFileSync('./certs/cert.pem', 'utf8');
+app.use('/messages', messaging);
+//app.use(errorHandler);
+const privateKey = fs.readFileSync('./certs/localhost-key.pem', 'utf8');
+const certificate = fs.readFileSync('./certs/localhost.pem', 'utf8');
 
 const credentials = { key: privateKey, cert: certificate };
 
