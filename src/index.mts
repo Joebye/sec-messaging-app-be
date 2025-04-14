@@ -12,7 +12,7 @@ import errorHandler from './middleware/errorHandler.mjs';
 import { messaging } from './routes/messaging.mjs';
 
 
-const app = express();
+export const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(helmet());
@@ -62,3 +62,4 @@ setTimeout(() => {
 
 process.on('SIGINT', () => shutdown('SIGINT'));
 process.on('SIGTERM', () => shutdown('SIGTERM'));
+
